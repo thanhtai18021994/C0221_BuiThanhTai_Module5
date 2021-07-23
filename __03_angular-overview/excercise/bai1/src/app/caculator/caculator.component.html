@@ -1,0 +1,34 @@
+<h1>Calculator Design Using HTML Layout</h1>
+<div class="container">
+  <div class="header">Calculator</div>
+  <input type="text" class="result" [(ngModel)]="result" disabled>
+  <div class="second-row">
+    <input #element7 type="button" name="" value="7" class="global" (click)="resolve(element7.value)">
+    <input #element8 type="button" name="" value="8" class="global" (click)="resolve(element8.value)">
+    <input #element9 type="button" name="" value="9" class="global" (click)="resolve(element9.value)">
+    <input #elementDivision type="button" name="" value="/" class="global" (click)="resolve(elementDivision.value)">
+  </div>
+  <div class="third-row">
+    <input #element4 type="button" name="" value="4" class="global" (click)="resolve(element4.value)">
+    <input #element5 type="button" name="" value="5" class="global" (click)="resolve(element5.value)">
+    <input #element6 type="button" name="" value="6" class="global" (click)="resolve(element6.value)">
+    <button #elementPlus type="button" name="" value="*" class="global" (click)="resolve(elementPlus.value)">X</button>
+  </div>
+  <div class="fourth-row">
+    <input #element type="button" name="" value="1" class="global" (click)="resolve(element.value)">
+    <input #element2 type="button" name="" value="2" class="global" (click)="resolve(element2.value)">
+    <input #element3 type="button" name="" value="3" class="global" (click)="resolve(element3.value)">
+    <input #elementSubtraction type="button" name="" value="-" class="global" (click)="resolve(elementSubtraction.value)">
+  </div>
+  <div class="conflict">
+    <div class="left">
+      <input #element0 type="button" name="" value="0" class=" big" (click)="resolve(element0.value)">
+      <input #elementDot type="button" name="" value="." class=" small" (click)="resolve(elementDot.value)">
+      <input type="button" name="" value="Del" class=" red small white-text top-margin" (click)="delete()">
+      <input type="button" name="" value="=" class=" green white-text big top-margin" (click)="calculate()">
+    </div>
+    <div class="right">
+      <input type="button" name="" value="+" class="global grey plus">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<main>
+  <header class="container">
+    <app-header-component [numberItem]="numberItem"></app-header-component>
+  </header>
+
+  <section class="container">
+    <app-list-product [product]="product" (onChange)="changeQuantity($event,$event)"></app-list-product>
+  </section>
+
+  <section class="container">
+   <app-promodo-code></app-promodo-code>
+    <app-cart-sumary></app-cart-sumary>
+  </section>
+</main>

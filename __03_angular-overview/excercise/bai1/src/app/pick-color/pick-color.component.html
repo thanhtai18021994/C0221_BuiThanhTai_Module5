@@ -1,0 +1,7 @@
+<h2  [style.color]="color">Hello</h2>
+<input type="range" min="0" max="255" [(ngModel)]="red" class="slider">
+<input type="range" min="0" max="255" [(ngModel)]="green" class="slider">
+<input type="range" min="0" max="255" [(ngModel)]="blue" class="slider">
+<input type="button" value="Convert" (click)="change()" [style.background-color]="color">
+<p>{{color}}</p>
+<div class="colorBoard" [style.background]="color"></div>

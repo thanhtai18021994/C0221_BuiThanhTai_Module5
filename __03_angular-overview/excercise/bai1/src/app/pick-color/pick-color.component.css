@@ -1,0 +1,21 @@
+.colorBoard{
+  width: 100px;
+  height: 100px;
+  margin-left: 2rem;
+}
+h2{
+  margin: 20px 0;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 400px;
+  height: 20px;
+  display: block;
+  background: grey;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin-bottom: 30px;
+  border-radius: 10px;
+}

@@ -1,0 +1,5 @@
+<p class="evaluate"><span>Số Sao:</span> <span>{{size}}</span></p>
+<app-rating-bar-component (size)="take($event)" [quantity]="quantity"></app-rating-bar-component>
+<div class="evaluate">
+  <label for="name">Đánh Giá:</label> <input id="name" #element type="number" (input)="evaluate(element.value)">
+</div>

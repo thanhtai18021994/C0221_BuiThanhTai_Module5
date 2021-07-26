@@ -1,0 +1,26 @@
+.evaluate{
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  align-items: center;
+}
+.evaluate label{
+  font-size: 1rem;
+  color: #333333;
+  font-weight: 600;
+  margin-right: 2rem;
+}
+.evaluate input{
+  padding: 0.2rem 1rem;
+  font-size: 1rem;
+  color: #333333;
+  outline: none;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+.evaluate span{
+  margin-right: 1rem;
+  color: #333333;
+  font-size: 1rem;
+  font-weight: 600;
+}

@@ -1,0 +1,16 @@
+<div class="container">
+  <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <div class="form-row">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" formControlName="email">
+      <small class="text-danger" *ngIf="loginForm.controls.email.hasError('email')&&loginForm.controls.email.dirty">Email invalid</small>
+    </div>
+
+    <div class="form-row">
+      <label for="password">Password</label>
+      <input type="text" class="form-control" id="password" formControlName="password">
+      <small class="text-danger" *ngIf="loginForm.controls.password.hasError('minlength')&&loginForm.controls.password.dirty">Password invalid</small>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+  </form>
+</div>

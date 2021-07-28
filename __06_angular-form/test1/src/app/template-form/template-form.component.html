@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Driven</h2>
+  <form #formUser="ngForm" (ngSubmit)="onSubmit(formUser)" autocomplete="off" [noValidate]="formUser">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input #userName="ngModel" type="email" name="userName"
+             class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+             [(ngModel)]="user.userName"
+             minlength="3" maxlength="20" required="required">
+          <div id="emailHelp" class="form-text" *ngIf="userName.dirty&&userName.errors?.minlength">Please enter this field !</div>
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input #password type="text" name="password" class="form-control" id="exampleInputPassword1" [(ngModel)]="user.password">
+    </div>
+    <div class="form-row">
+      <button type="submit" class="btn btn-primary mr-auto">Submit</button>
+      <button type="button" class="btn btn-primary" (click)="onResetForm(formUser)">Reset</button>
+    </div>
+  </form>
+</div>

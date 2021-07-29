@@ -1,0 +1,18 @@
+h1{
+  font-size: 30px;
+  font-weight: 700;
+}
+
+tr td{
+  width: 120px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+tr td:first-child{
+  color: darkblue;
+  font-weight: 500;
+}
+tr:first-child{
+  color: #222;
+}

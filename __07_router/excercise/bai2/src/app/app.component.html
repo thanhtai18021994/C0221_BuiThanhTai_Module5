@@ -1,0 +1,10 @@
+<input #element type="text" (input)="findWord(element.value)">
+<p>Nghia: {{word}}</p>
+<table>
+  <tr *ngFor="let item of words">
+    <td>{{item.word}}</td>
+    <td>{{item.mean}}</td>
+    <td [routerLink]="['/view',item.word]">View</td>
+  </tr>
+</table>
+<router-outlet></router-outlet>

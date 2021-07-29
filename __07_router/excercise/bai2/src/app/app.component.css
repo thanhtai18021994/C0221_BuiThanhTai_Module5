@@ -1,0 +1,15 @@
+tr td{
+  width: 120px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+tr td:first-child{
+  color: darkblue;
+  font-weight: 500;
+}
+tr td:last-child{
+  color: red;
+}
+table{
+
+}

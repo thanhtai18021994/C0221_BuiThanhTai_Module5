@@ -36,8 +36,8 @@
           <select id="position" class="form-control" formControlName="position"
                   [ngClass]="{'border-danger':employeeForm.get('position').hasError('required')
                  &&employeeForm.get('position').touched}">
-            <option selected>Choose...</option>
-            <option>...</option>
+            <option selected [value]="">Choose...</option>
+            <option *ngFor="let item of positions" [value]="item.name">{{item.name}}</option>
           </select>
           <div class="text-danger" *ngFor="let item of validator.position">
             <div *ngIf="employeeForm.get('position').hasError(item.type)&&employeeForm.get('position').touched">{{item.msg}}</div>
@@ -48,8 +48,8 @@
           <select id="education" class="form-control" formControlName="education"
                   [ngClass]="{'border-danger':employeeForm.get('education').hasError('required')
                  &&employeeForm.get('education').touched}">
-            <option selected>Choose...</option>
-            <option>...</option>
+            <option selected [value]="">Choose...</option>
+            <option *ngFor="let item of educations" [value]="item.name">{{item.name}}</option>
           </select>
           <div class="text-danger" *ngFor="let item of validator.education">
             <div *ngIf="employeeForm.get('education').hasError(item.type)&&employeeForm.get('education').touched">{{item.msg}}</div>
@@ -98,7 +98,7 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="idCard">Số Cmnd:</label>
-          <input type="date" class="form-control" id="idCard" formControlName="idCard"
+          <input type="text" class="form-control" id="idCard" formControlName="idCard"
                  [ngClass]="{'border-danger':employeeForm.get('idCard').hasError('required')
                  &&employeeForm.get('idCard').touched}">
           <div class="text-danger" *ngFor="let item of validator.idCard">
@@ -111,11 +111,12 @@
           <select id="inputState" class="form-control" formControlName="department"
                   [ngClass]="{'border-danger':employeeForm.get('department').hasError('required')
                  &&employeeForm.get('department').touched}">
-            <option selected>Choose...</option>
-            <option>...</option>
+            <option selected [value]="">Choose...</option>
+            <option *ngFor="let item of departments" [value]="item.name">{{item.name}}</option>
           </select>
           <div class="text-danger" *ngFor="let item of validator.department">
-            <div *ngIf="employeeForm.get('department').hasError(item.type)&&employeeForm.get('department').touched">{{item.msg}}</div>
+            <div *ngIf="employeeForm.get('department')
+            .hasError(item.type)&&employeeForm.get('department').touched">{{item.msg}}</div>
           </div>
         </div>
       </div>

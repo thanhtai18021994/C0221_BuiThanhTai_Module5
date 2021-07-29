@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">
+    <img src="assets/image/avatar-3637425_960_720.png" alt="logo" style="width:40px;">
+  </a>
+  <ul class="navbar-nav">
+    <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{exact : true}">
+      <a class="nav-link" [routerLink]="['/']">Home</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/product']">List</a>
+    </li>
+    <li class="nav-item" routerLinkActive="active">
+      <a class="nav-link" [routerLink]="['/create']">Create</a>
+    </li>
+  </ul>
+</nav>
+<main class="bg-light container-fluid">
+  <div class="container bg-white p-5">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="container bg-white p-5">
+    <h2>Button Group</h2>
+    <p>The .btn-group class creates a button group:</p>
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary" (click)="navigate('')">Home</button>
+      <button type="button" class="btn btn-primary" (click)="navigate('list')">List</button>
+      <button type="button" class="btn btn-primary" (click)="navigate('create')">Create</button>
+    </div>
+  </div>
+
+</main>
+
+<footer class="container-fluid bg-dark p-5">
+  <h2 class="container text-white mb-4 align-items-center d-flex justify-content-center">Đây là footer</h2>
+  <div class="container d-flex mb-3">
+    <ul class="list-unstyled text-white flex-lg-grow-1 d-flex flex-column align-items-center">
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+    </ul>
+    <ul class="list-unstyled text-white flex-lg-grow-1 d-flex flex-column align-items-center">
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+    </ul>
+    <ul class="list-unstyled text-white flex-lg-grow-1 d-flex flex-column align-items-center">
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+      <li>Đây là footer</li>
+    </ul>
+  </div>
+</footer>

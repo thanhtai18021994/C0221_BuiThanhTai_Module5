@@ -9,25 +9,56 @@
     <div class="mb-3 d-flex justify-content-between">
       <input type="text" class="form-control col-4 border-info" placeholder="Tìm Kiếm ..."
              (input)="searchAllField(element.value)" #element>
-      <div class="col-6 row">
-        <select class="custom-select my-1 mr-sm-2 col-4">
-          <option selected>Bằng cấp</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
+      <div class="col-6 row row-header">
 
-        <select class="custom-select my-1 mr-sm-2 col-4" (change)="searchPosition(position.value)" #position>
-          <option selected [value]="null">Bộ phận</option>
-          <option *ngFor="let item of positions" [value]="item.name">{{item.name}}</option>
-        </select>
+        <button type="button" class="btn btn-primary ml-auto" (click)="controlModal()">
+          <span><i class="las la-filter"></i></span> <span>Bộ lọc</span>
 
-        <select class="custom-select my-1 mr-sm-2 col-3">
-          <option selected>Chức vụ</option>
-          <option value="1">One</option>
-          <option value="2">Two</option>
-          <option value="3">Three</option>
-        </select>
+        </button>
+        <div class="private-modal" [ngStyle]="{'display':flag?'block':'none'}">
+          <div class="overlay"></div>
+          <div class="body-modal">
+            <div class="row border-bottom border-info pb-3" style="font-size: 16px;font-weight: bold">Bộ Lọc</div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label for="name">Họ và tên:</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+              <div class="form-group col-md-6">
+                <label for="phone">Số cmnd:</label>
+                <input type="text" class="form-control" id="phone">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label for="position">Chức Vụ</label>
+                <select id="position" class="form-control" #position>
+                  <option selected [value]=null>Choose...</option>
+                  <option *ngFor="let item of positions" [value]="item.name">{{item.name}}</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="education">Bằng cấp</label>
+                <select id="education" class="form-control" #education>
+                  <option selected [value]=null>Choose...</option>
+                  <option *ngFor="let item of educations" [value]="item.name">{{item.name}}</option>
+                </select>
+              </div>
+              <div class="form-group col-md-4">
+                <label for="departments">Bộ phận</label>
+                <select id="departments" class="form-control" #department>
+                  <option selected [value]=null>Choose...</option>
+                  <option *ngFor="let item of departments" [value]="item.name">{{item.name}}</option>
+                </select>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" (click)="search(position.value,education.value,department.value)">Tìm kiếm</button>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
     <table class="table table-hover">
@@ -48,18 +79,19 @@
         <td>{{item.department}}</td>
         <td>
           <button class="btn btn-primary"
-                  [routerLink]="['/employee',{
-      outlets:{'employee':['view']}}]">
+                  [routerLink]="['/employee',{outlets:{'employee':['view',item.id]}}]">
             <span style="margin-right: 10px"><i class="las la-eye"></i></span><span>Xem</span>
           </button>
         </td>
         <td>
-          <button class="btn btn-warning" [routerLink]="[{outlets:{primary:['employee/view'],employee:['employee']}}]"><span style="margin-right: 10px"><i
-            class="las la-edit"></i></span><span>Sửa</span></button>
+          <button class="btn btn-warning"
+                  [routerLink]="['/employee',{outlets:{'employee':['update',item.id]}}]">
+            <span style="margin-right: 10px">
+              <i class="las la-edit"></i></span><span>Sửa</span></button>
         </td>
         <td>
-          <button class="btn btn-danger"><span style="margin-right: 10px"><i
-            class="las la-trash"></i></span><span>Xoa</span></button>
+          <button class="btn btn-danger" (click)="delete(item.id)"><span style="margin-right: 10px"><i
+            class="las la-trash"></i></span><span>Xóa</span></button>
         </td>
       </tr>
       </tbody>
@@ -67,3 +99,4 @@
     <pagination-controls (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>
+

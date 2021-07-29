@@ -13,7 +13,7 @@ import { EmployeeComponent } from './employee/employee.component';
 import {HttpClientModule} from '@angular/common/http';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
+import Swal from 'sweetalert2';
 const routing: Routes = [
   {
     path: 'home',
@@ -37,11 +37,11 @@ const routing: Routes = [
         component: CreateEmployeeComponent,
         outlet:'employee'
       }, {
-        path: 'update:/id',
+        path: 'update/:id',
         component: UpdateEmployeeComponent,
         outlet:'employee'
       }, {
-        path: 'view',
+        path: 'view/:id',
         component: ViewEmployeeComponent,
         outlet:'employee'
       }

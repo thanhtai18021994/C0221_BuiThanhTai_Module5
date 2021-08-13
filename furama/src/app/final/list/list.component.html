@@ -1,0 +1,33 @@
+<div class="container-fluid">
+ <h2 class="title-component"> Danh Sach Benh An</h2>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Ma Benh an</th>
+    <th scope="col">Ma benh nhan</th>
+    <th scope="col">Ten Benh nhan</th>
+    <th scope="col">Ngay nhap vien</th>
+    <th scope="col">Ngay ra vien</th>
+    <th scope="col">Ly do nhap vien</th>
+    <th scope="col">Phuong phap dieu tri</th>
+    <th scope="col">Bac si dieu tri</th>
+    <th scope="col" colspan="2">Tac vu</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let item of benhans">
+    <td>{{item.maBenhAn}}</td>
+    <td>{{item.maBenhNhan}}</td>
+    <td>{{item.tenBenhNhan}}</td>
+    <td>{{item.ngayNhapVien}}</td>
+    <td>{{item.ngayRaVien}}</td>
+    <td>{{item.lyDoNhapVien}}</td>
+    <td>{{item.phuongAnDieutri}}</td>
+    <td>{{item.bacSiDieuTri}}</td>
+    <td (click)="delete(item.id)" style="cursor: pointer">Xoa</td>
+    <td routerLink="/final/update/{{item.id}}" style="cursor: pointer">Sua</td>
+
+  </tr>
+  </tbody>
+</table>

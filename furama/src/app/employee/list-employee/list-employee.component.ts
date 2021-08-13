@@ -55,19 +55,17 @@ export class ListEmployeeComponent implements OnInit {
     });
   }
 
-  searchAllField(value: string) {
-    console.log(typeof value);
-    this.employeeService.searchNameOrPhone(value).subscribe(response => {
-      this.employees = response;
-      console.log(response);
-    });
-  }
 
-  searchPosition(value: string) {
+  searchAllField(value: string) {
     console.log(value);
-    this.employeeService.searchPosition(value).subscribe(response => {
-      this.employees = response;
+    this.employeeService.searchName(value).subscribe(employeesByName => {
+      this.employees=employeesByName;
+      console.log(1);
     });
+    this.employeeService.searchPhone(value).subscribe(employeesByPhone=>{
+      console.log(2);
+      this.employees=this.employees.concat(employeesByPhone);
+    })
   }
 
   delete(id: number) {
@@ -108,6 +106,9 @@ export class ListEmployeeComponent implements OnInit {
   }
 
   search(position:string,education:string,department:string){
-    console.log(position,education,department);
+    this.controlModal();
+    this.employeeService.search(position,education,department).subscribe(employee=>{
+      this.employees=employee;
+    })
   }
 }

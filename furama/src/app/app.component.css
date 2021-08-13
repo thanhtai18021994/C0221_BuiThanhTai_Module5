@@ -337,6 +337,7 @@ td {
   min-width: 100px;
   cursor: pointer;
 }
+
 .form-row{
   flex-wrap: nowrap;
 }

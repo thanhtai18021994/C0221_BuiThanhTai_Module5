@@ -1,0 +1,79 @@
+<div class="container-fluid">
+<div class="container-fluid mb-3">
+  <button class="btn btn-primary" routerLink="/final/list">Tro ve danh sach</button>
+</div>
+  <div class="container-fluid">
+    <h2 class="title-component">Chinh sua benh an</h2>
+  </div>
+  <div class="container-fluid">
+    <form action="" *ngIf="benhanGroup" [formGroup]="benhanGroup" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="mabenhan">Mã bệnh án</label>
+        <input readonly type="text" class="form-control" id="mabenhan" formControlName="maBenhAn">
+      </div>
+      <div class="form-group">
+        <label for="mabenhnhan">Ma benh nhan</label>
+        <input readonly type="text" class="form-control" id="mabenhnhan" formControlName="maBenhNhan">
+      </div>
+      <div class="form-group">
+        <label for="ten">Ten Benh nhan</label>
+        <input type="text" class="form-control" id="ten" formControlName="tenBenhNhan"
+               [ngClass]="{'border-danger':benhanGroup.get('tenBenhNhan').hasError('required')
+                 &&benhanGroup.get('tenBenhNhan').touched}">
+        <div class="text-danger" *ngFor="let item of validator.tenBenhNhan">
+          <div *ngIf="benhanGroup.get('tenBenhNhan').hasError(item.type)&&benhanGroup.get('tenBenhNhan').touched">{{item.msg}}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="dateStart">Ngay Nhap vien</label>
+        <input type="date" class="form-control" id="dateStart" formControlName="ngayNhapVien"
+               [ngClass]="{'border-danger':benhanGroup.get('ngayNhapVien').hasError('required')
+                 &&benhanGroup.get('ngayNhapVien').touched}">
+        <div class="text-danger" *ngFor="let item of validator.ngayNhapVien">
+          <div *ngIf="benhanGroup.get('ngayNhapVien').hasError(item.type)
+          &&benhanGroup.get('ngayNhapVien').touched">{{item.msg}}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address">Ngay ra vien</label>
+        <input type="date" class="form-control" id="address" formControlName="ngayRaVien"
+               [ngClass]="{'border-danger':benhanGroup.get('ngayRaVien').hasError('required')
+                 &&benhanGroup.get('ngayRaVien').touched}">
+        <div class="text-danger" *ngFor="let item of validator.ngayRaVien">
+          <div *ngIf="benhanGroup.get('ngayRaVien').hasError(item.type)&&benhanGroup.get('ngayRaVien').touched">{{item.msg}}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lyDoNhapVien">Ly do nhap vien</label>
+        <input type="text" class="form-control" id="lyDoNhapVien" formControlName="lyDoNhapVien"
+               [ngClass]="{'border-danger':benhanGroup.get('lyDoNhapVien').hasError('required')
+                 &&benhanGroup.get('lyDoNhapVien').touched}">
+        <div class="text-danger" *ngFor="let item of validator.lyDoNhapVien">
+          <div *ngIf="benhanGroup.get('lyDoNhapVien').hasError(item.type)
+          &&benhanGroup.get('lyDoNhapVien').touched">{{item.msg}}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phuongAnDieutri">Phuong an dieu tri</label>
+        <input type="text" class="form-control" id="phuongAnDieutri" formControlName="phuongAnDieutri"
+               [ngClass]="{'border-danger':benhanGroup.get('phuongAnDieutri').hasError('required')
+                 &&benhanGroup.get('phuongAnDieutri').touched}">
+        <div class="text-danger" *ngFor="let item of validator.phuongAnDieutri">
+          <div *ngIf="benhanGroup.get('phuongAnDieutri').hasError(item.type)
+          &&benhanGroup.get('phuongAnDieutri').touched">{{item.msg}}</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="bacSiDieuTri">Bac si dieu tri</label>
+        <input type="text" class="form-control" id="bacSiDieuTri" formControlName="bacSiDieuTri"
+               [ngClass]="{'border-danger':benhanGroup.get('lyDoNhapVien').hasError('required')
+                 &&benhanGroup.get('bacSiDieuTri').touched}">
+        <div class="text-danger" *ngFor="let item of validator.bacSiDieuTri">
+          <div *ngIf="benhanGroup.get('bacSiDieuTri').hasError(item.type)
+          &&benhanGroup.get('bacSiDieuTri').touched">{{item.msg}}</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Xac nhan</button>
+    </form>
+  </div>
+</div>

@@ -17,15 +17,16 @@ export class EmployeeService {
     return this.http.get<Employee[]>(`${this.URI_API}/employee`);
   }
 
-  searchNameOrPhone(value: string): Observable<Employee[]> {
-    return this.http.get<Employee[]>(`${this.URI_API}/employee?phoneNumber_like=${value}`);
+
+
+  searchName(name:string):Observable<Employee[]>{
+    // console.log(111111);
+    return this.http.get<Employee[]>(`${this.URI_API}/employee?name_like=${name}`);
   }
 
-  searchPosition(value: string): Observable<Employee[]> {
-    if (value == 'null') {
-      return this.http.get<Employee[]>(`${this.URI_API}/employee`);
-    }
-    return this.http.get<Employee[]>(`${this.URI_API}/employee?position=${value}`);
+  searchPhone(phone:string):Observable<Employee[]>{
+    console.log("abc");
+    return this.http.get<Employee[]>(`${this.URI_API}/employee?phoneNumber_like=${phone}`);
   }
 
   createForm(employee: Employee): Observable<Employee> {
@@ -46,9 +47,16 @@ export class EmployeeService {
 
   search(position:string,education:string,department:string):Observable<Employee[]>{
     let request="";
-    if (position!=null){
-      request+=`position=${position}`;
+    if (position!='null'){
+      request+=`position=${position}&`;
     }
+    if (education!='null'){
+      request+=`education=${education}&`;
+    }
+    if (department!='null'){
+      request+=`department=${department}`;
+    }
+    console.log(request);
     return this.http.get<Employee[]>(`${this.URI_API}/employee?${request}`)
   }
 }
